@@ -1,6 +1,4 @@
-![ratchet](https://raw.githubusercontent.com/chendrix/ratchet/icon.png)
-
-# Ratchet
+# ![ratchet](https://raw.githubusercontent.com/chendrix/ratchet/master/ratchet.png) Ratchet
 > Make your code better little by little via ratcheting.
 
 For every go codebase that doesn't currently pass `golint` or `go vet`.
@@ -49,6 +47,6 @@ Steps to Verify Before Submitting a PR:
 
 ## Licensing
 
-See [LICENSE](https://raw.githubusercontent.com/chendrix/ratchet/LICENSE)
+See [LICENSE](https://raw.githubusercontent.com/chendrix/ratchet/master/LICENSE)
 
 * Wrench by Creative Stall from the Noun Project
