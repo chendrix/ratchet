@@ -33,13 +33,14 @@ var _ = Describe("Integration Tests", func() {
 	Describe("golint", func() {
 		fixturePath := "integrationtest/fixtures/golint"
 
-		It("exits unsucessfully when the command ", func() {
+		It("exits unsucessfully when the command is run", func() {
 			command := exec.Command(patchToRatchetCLI, fixturePath)
 			session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 			Expect(err).ToNot(HaveOccurred())
 
 			Eventually(session.Out).Should(gbytes.Say("github.com/chendrix/ratchet/integrationtest/fixtures/golint"))
-			Eventually(session).Should(gexec.Exit(0))
+			Eventually(session.Out).Should(gbytes.Say("exported type Cmd should have comment or be unexported"))
+			Eventually(session).Should(gexec.Exit(1))
 		})
 	})
 

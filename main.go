@@ -8,6 +8,8 @@ import (
 
 	"io/ioutil"
 
+	"os/exec"
+
 	"github.com/chendrix/ratchet/lib/manifest"
 	"github.com/jessevdk/go-flags"
 	"gopkg.in/yaml.v2"
@@ -69,6 +71,22 @@ func (c *Cmd) Execute() {
 	}
 
 	for _, directive := range m {
-		fmt.Println(directive.Package)
+		for _, ratchet := range directive.Ratchets {
+			binary, err := exec.LookPath(ratchet.Command)
+			if err != nil {
+				fmt.Printf("Error: %s", err.Error())
+				os.Exit(1)
+			}
+
+			cmd := exec.Command(binary, append(ratchet.Arguments, directive.Package)...)
+			cmd.Stderr = os.Stderr
+			cmd.Stdout = os.Stdout
+
+			err = cmd.Run()
+			if err != nil {
+				fmt.Printf("Error: %s", err.Error())
+				os.Exit(1)
+			}
+		}
 	}
 }
