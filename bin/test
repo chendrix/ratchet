@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eux
+
+ginkgo -race -r -randomizeAllSpecs -cover -p $@
