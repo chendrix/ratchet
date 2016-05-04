@@ -2,4 +2,5 @@
 
 set -e
 
-go get github.com/onsi/ginkgo/ginkgo
+go install github.com/chendrix/ratchet/vendor/github.com/golang/lint/golint
+go install github.com/chendrix/ratchet/vendor/github.com/onsi/ginkgo/ginkgo

@@ -2,6 +2,23 @@
 	"version": 0,
 	"dependencies": [
 		{
+			"importpath": "github.com/golang/lint",
+			"repository": "https://github.com/golang/lint",
+			"vcs": "git",
+			"revision": "c7bacac2b21ca01afa1dee0acf64df3ce047c28f",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/golang/lint/golint",
+			"repository": "https://github.com/golang/lint",
+			"vcs": "git",
+			"revision": "c7bacac2b21ca01afa1dee0acf64df3ce047c28f",
+			"branch": "master",
+			"path": "/golint",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/golang/protobuf/proto",
 			"repository": "https://github.com/golang/protobuf",
 			"vcs": "git",
@@ -51,6 +68,15 @@
 			"revision": "7ce781ea776b2fd506491011353bded2e40c8467",
 			"branch": "master",
 			"path": "/gexec",
+			"notests": true
+		},
+		{
+			"importpath": "golang.org/x/tools/go/gcimporter15",
+			"repository": "https://go.googlesource.com/tools",
+			"vcs": "git",
+			"revision": "8dab6f11295bfbb4ddd1fca4efa34261bc9ea0fb",
+			"branch": "master",
+			"path": "/go/gcimporter15",
 			"notests": true
 		}
 	]
