@@ -2,4 +2,10 @@
 
 set -eux
 
+golint -set_exit_status \
+    $(go list ./... \
+    | egrep -v /vendor/ \
+    | egrep -v /fixtures/ \
+    )
+
 ginkgo -race -r -randomizeAllSpecs -cover -p $@
