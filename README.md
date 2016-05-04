@@ -1,6 +1,8 @@
 # ![ratchet](https://raw.githubusercontent.com/chendrix/ratchet/master/ratchet.png) Ratchet
 > Make your code better little by little via ratcheting.
 
+![travis-ci](https://travis-ci.org/chendrix/ratchet.svg?branch=master)
+
 For every go codebase that doesn't currently pass `golint` or `go vet`.
 
 Make your codebase better one package at a time.
