@@ -3,7 +3,7 @@ language: go
 go:
   - tip
 
-script: bin/bootstrap && bin/test -nodes=2
+script: bin/bootstrap && bin/test -nodes=2 && bin/build
 
 env:
   matrix:
