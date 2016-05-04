@@ -86,6 +86,14 @@
 			"branch": "master",
 			"path": "/go/gcimporter15",
 			"notests": true
+		},
+		{
+			"importpath": "gopkg.in/yaml.v2",
+			"repository": "https://gopkg.in/yaml.v2",
+			"vcs": "git",
+			"revision": "a83829b6f1293c91addabc89d0571c246397bbf4",
+			"branch": "v2",
+			"notests": true
 		}
 	]
 }

@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jessevdk/go-flags"
-
 	"path/filepath"
+
+	"io/ioutil"
+
+	"github.com/chendrix/ratchet/lib/manifest"
+	"github.com/jessevdk/go-flags"
+	"gopkg.in/yaml.v2"
 )
 
 func main() {
@@ -23,7 +27,6 @@ func main() {
 
 	cmd.Execute()
 }
-
 
 // Cmd represents ratchet's CLI
 type Cmd struct {
@@ -49,5 +52,23 @@ func (c *Cmd) Execute() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Found %s in %s", RatchetFilename, c.RelativePath)
+	fmt.Printf("Found %s in %s\n", RatchetFilename, c.RelativePath)
+
+	m := manifest.Manifest{}
+
+	f, err := ioutil.ReadFile(ratchetPath)
+	if err != nil {
+		fmt.Printf("Error: %s", err.Error())
+		os.Exit(1)
+	}
+
+	err = yaml.Unmarshal(f, &m)
+	if err != nil {
+		fmt.Printf("Error: %s", err.Error())
+		os.Exit(1)
+	}
+
+	for _, directive := range m {
+		fmt.Println(directive.Package)
+	}
 }

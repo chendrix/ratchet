@@ -33,13 +33,13 @@ var _ = Describe("Integration Tests", func() {
 	Describe("golint", func() {
 		fixturePath := "integrationtest/fixtures/golint"
 
-		XIt("exits unsucessfully when the command ", func() {
+		It("exits unsucessfully when the command ", func() {
 			command := exec.Command(patchToRatchetCLI, fixturePath)
 			session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 			Expect(err).ToNot(HaveOccurred())
 
-			Eventually(session.Out).Should(gbytes.Say("Ratchet `golint --set_exit_status` exited unsuccessfully"))
-			Eventually(session).Should(gexec.Exit(1))
+			Eventually(session.Out).Should(gbytes.Say("github.com/chendrix/ratchet/integrationtest/fixtures/golint"))
+			Eventually(session).Should(gexec.Exit(0))
 		})
 	})
 
