@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
-golint -set_exit_status \
-    $(go list ./... \
-    | egrep -v /vendor/ \
-    | egrep -v /fixtures/ \
-    )
+pkgs=$(go list ./... \
+        | egrep -v /vendor/ \
+        | egrep -v /fixtures/ \
+        )
+
+for pkg in $pkgs
+do
+  golint --set_exit_status $pkg
+
+  if [ $? -ne 0 ]
+  then
+    exit 1
+  fi
+done
 
 ginkgo -race -r -randomizeAllSpecs -cover -p $@
