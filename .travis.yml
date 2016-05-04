@@ -6,7 +6,5 @@ go:
 script: bin/bootstrap && bin/test -nodes=2
 
 env:
-  global:
-    - GO15VENDOREXPERIMENT=true
   matrix:
     - INTEGRATION=true
