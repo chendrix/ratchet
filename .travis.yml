@@ -3,4 +3,10 @@ language: go
 go:
   - tip
 
-script: INTEGRATION=true bin/bootstrap && bin/test -nodes=2
+script: bin/bootstrap && bin/test -nodes=2
+
+env:
+  global:
+    - GO15VENDOREXPERIMENT=true
+  matrix:
+    - INTEGRATION=true
