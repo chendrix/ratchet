@@ -1,0 +1,3 @@
+- package: github.com/chendrix/ratchet/integrationtest/fixtures/golint
+  ratchets:
+  - command: golint --set_exit_status
